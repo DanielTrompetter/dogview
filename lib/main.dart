@@ -33,7 +33,7 @@ class DogHomePageState extends State<DogHomePage> {
   void initState() {
     super.initState();
     _loadBreeds();
-    _loadImage();
+    _loadRandomImage();
   }
 
   Future<void> _loadBreeds() async {
@@ -41,7 +41,7 @@ class DogHomePageState extends State<DogHomePage> {
     setState(() => _breeds = breeds..sort());
   }
 
-  Future<void> _loadImage() async {
+  Future<void> _loadRandomImage() async {
     setState(() => _loading = true);
     final image = await _dogService.getRandomImage(_selectedBreed);
     setState(() {
@@ -93,7 +93,7 @@ class DogHomePageState extends State<DogHomePage> {
               }).toList(),
               onChanged: (value) {
                 setState(() => _selectedBreed = value);
-                _loadImage();
+                _loadRandomImage();
               },
             ),
           ),
@@ -134,7 +134,7 @@ class DogHomePageState extends State<DogHomePage> {
                   'Neues Bild laden',
                   style: TextStyle(color: Colors.black87),
                 ),
-                onPressed: _loadImage,
+                onPressed: _loadRandomImage,
                 style: TextButton.styleFrom(
                   padding: EdgeInsets.symmetric(horizontal: 16, vertical: 12),
                   tapTargetSize: MaterialTapTargetSize.shrinkWrap,
