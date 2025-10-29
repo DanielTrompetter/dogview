@@ -83,7 +83,7 @@ class DogHomePageState extends State<DogHomePage> {
               value: _selectedBreed,
               hint: Text('Wähle eine Rasse'),
               isExpanded: true,
-              underline: SizedBox(), // entfernt die Standardlinie
+              underline: SizedBox(), // weg mit dem doofen Unterstrich
               items: _breeds.map((breed) {
                 return DropdownMenuItem(
                   alignment: Alignment.center,
